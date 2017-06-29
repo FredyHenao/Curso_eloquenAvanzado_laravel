@@ -17,6 +17,8 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+
+            $table->softDeletes();//deteled_at  elimina logicamente
             $table->timestamps();
         });
     }
