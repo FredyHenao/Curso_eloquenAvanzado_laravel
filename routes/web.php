@@ -13,7 +13,8 @@
 
 //introduccion-y-primeros-pasos video 1
 Route::get('/', function () {
-    return eloquenAvance\Book::all();
+    $books = eloquenAvance\Book::get();
+    return view('destroy', compact('books'));
 });
 
 Route::get('delete/{id}', function ($id) {
@@ -44,4 +45,14 @@ Route::get('eliminarfin/{id}', function ($id) {
     $book = eloquenAvance\Book::withTrashed()->find($id);
     $book->forceDelete();
     return "Registro eliminado correctamente";
+});
+
+//eliminar varios registros a la ves
+Route::delete('destroy',function (Illuminate\Http\Request $request){
+    $ids = $request->get('ids');
+
+    if(count($ids)){
+        eloquenAvance\Book::destroy($ids);
+    }
+    return back();
 });
