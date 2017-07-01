@@ -7,11 +7,8 @@
         @foreach($categories as $category)
             <p>
 
-                @if(count($category->books) != 0)
                     {{ $category->name }}
-                    {{ (count($category->books)) }}
-                @endif
-
+                    {{ $category->num_books }}
             </p>
             <ul>
                 @foreach($category->books as $book)

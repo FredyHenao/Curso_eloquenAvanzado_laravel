@@ -59,6 +59,7 @@ Route::delete('destroy',function (Illuminate\Http\Request $request){
 
 //consultar todas las categorias
 Route::get('categorias', function () {
-    $categories = eloquenAvance\Category::get();
+    //el metodo has sirve para traer datos de relaciones mientras exista algo relacionado con el
+    $categories = eloquenAvance\Category::has('books')->get();
     return view('relationship', compact('categories'));
 });
