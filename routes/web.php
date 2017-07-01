@@ -56,3 +56,9 @@ Route::delete('destroy',function (Illuminate\Http\Request $request){
     }
     return back();
 });
+
+//consultar todas las categorias
+Route::get('categorias', function () {
+    $categories = eloquenAvance\Category::get();
+    return view('relationship', compact('categories'));
+});
