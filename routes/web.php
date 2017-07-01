@@ -63,3 +63,12 @@ Route::get('categorias', function () {
     $categories = eloquenAvance\Category::has('books')->get();
     return view('relationship', compact('categories'));
 });
+
+//consultar todos los libros que tengan todos los estados en public de cada categoria
+Route::get('categorias_books', function () {
+    //el metodo whereHas con el cual añadimos restricciones personalizadas, ordenamos resultados y básicamente una consulta completa en una tabla relacionada
+    $categories = eloquenAvance\Category::whereHas('books',function ($query){
+        $query->where('status','public');
+    })->get();
+    return view('relationship', compact('categories'));
+});

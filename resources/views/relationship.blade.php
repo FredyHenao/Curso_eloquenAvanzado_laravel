@@ -8,16 +8,17 @@
             <p>
 
                     {{ $category->name }}
-                    {{ $category->num_books }}
+                   {{-- {{ $category->num_books }} --}}
             </p>
-            <ul>
+            {{--<ul>
                 @foreach($category->books as $book)
                     <li>
                        <strong>{{  $book->title }}</strong>
                         {{ $book->description }}
+                        {{ $book->status }}
                     </li>
                 @endforeach
-            </ul>
+            </ul>--}}
         @endforeach
 </body>
 </html>
