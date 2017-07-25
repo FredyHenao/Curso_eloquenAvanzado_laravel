@@ -72,3 +72,10 @@ Route::get('categorias_books', function () {
     })->get();
     return view('relationship', compact('categories'));
 });
+
+//relación de muchos a muchos
+//en las relaciones de muchos a muchos se crea una tabla intermedia que se llaman tablas pivotes, a la hora de nombrarl se debe poner en singular y en orden alfabetico
+Route::get('manytomany',function (){
+    $users = \eloquenAvance\User::all();
+    return view('manytomany', compact('users'));
+});

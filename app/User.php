@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //se coloca la palabra en plural y se utiliza el metodo belongsToMany en las dos tablas para hacer referencia de muchos a muchos
+    public function books(){
+        return $this->belongsToMany(Book::class);
+    }
 }
