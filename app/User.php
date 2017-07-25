@@ -28,7 +28,11 @@ class User extends Authenticatable
     ];
 
     //se coloca la palabra en plural y se utiliza el metodo belongsToMany en las dos tablas para hacer referencia de muchos a muchos
-    public function books(){
+    public function manyBooks(){
         return $this->belongsToMany(Book::class);
+    }
+
+    public function getBooksAttribute(){
+        return $this->manyBooks()->pluck('book_id')->toArray();
     }
 }

@@ -77,5 +77,15 @@ Route::get('categorias_books', function () {
 //en las relaciones de muchos a muchos se crea una tabla intermedia que se llaman tablas pivotes, a la hora de nombrarl se debe poner en singular y en orden alfabetico
 Route::get('manytomany',function (){
     $users = \eloquenAvance\User::all();
-    return view('manytomany', compact('users'));
+    return view('manytomany.manytomany', compact('users'));
 });
+
+Route::get('edit-manytomany/{user_id}',[
+    'as' => 'getEdit',
+    'uses' => 'UserController@getEditManyToMany'
+]);
+
+Route::put('put-manytomany/{user_id}',[
+    'as' => 'putEdit',
+    'uses' => 'UserController@putEditManyToMany'
+]);
