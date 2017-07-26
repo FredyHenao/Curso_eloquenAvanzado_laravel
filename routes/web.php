@@ -89,3 +89,12 @@ Route::put('put-manytomany/{user_id}',[
     'as' => 'putEdit',
     'uses' => 'UserController@putEditManyToMany'
 ]);
+
+//query builder
+Route::get('querybuilder',function (){
+    $books = DB::table('categories')
+        ->join('books','categories.id','=', 'books.category_id')
+        ->select('categories.*','books.*')
+        ->get();
+   return view('querybuilder.index', compact('books'));
+});

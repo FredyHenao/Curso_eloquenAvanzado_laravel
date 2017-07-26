@@ -176,7 +176,9 @@ return [
         // eloquenAvance\Providers\BroadcastServiceProvider::class,
         eloquenAvance\Providers\EventServiceProvider::class,
         eloquenAvance\Providers\RouteServiceProvider::class,
+
         Styde\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -227,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Access' => Styde\Html\Facades\Access::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
