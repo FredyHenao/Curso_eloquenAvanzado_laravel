@@ -35,4 +35,10 @@ class User extends Authenticatable
     public function getBooksAttribute(){
         return $this->manyBooks()->pluck('book_id')->toArray();
     }
+
+    public function exams(){
+        return $this->belongsToMany(Exam::class)
+            ->withPivot('score')
+            ->withTimestamps();
+    }
 }

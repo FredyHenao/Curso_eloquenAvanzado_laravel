@@ -98,3 +98,16 @@ Route::get('querybuilder',function (){
         ->get();
    return view('querybuilder.index', compact('books'));
 });
+
+//relación de muchos a muchos con campos adicionales
+Route::get('manytomanymax',function (){
+    $user = \eloquenAvance\User::find(1);
+    echo $user->name;
+    foreach ($user->exams as $exam){
+        echo '<li>'
+            .$exam->title
+            .' Nota '.$exam->pivot->score
+            .' Fecha '.$exam->pivot->created_at
+            .'</li>';
+    }
+});

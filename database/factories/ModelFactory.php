@@ -31,3 +31,9 @@ $factory->define(eloquenAvance\Book::class, function (Faker\Generator $faker){
         'category_id' => $faker->randomElement([1,2,3]),
     ];
 });
+
+$factory->define(eloquenAvance\Exam::class, function (Faker\Generator $faker){
+    return [
+        'title' => $faker->name,
+    ];
+});
