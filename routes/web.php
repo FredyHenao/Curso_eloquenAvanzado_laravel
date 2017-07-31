@@ -111,3 +111,9 @@ Route::get('manytomanymax',function (){
             .'</li>';
     }
 });
+
+//problema n+1  carga ambiciosa(se hace la consulta y se envia a la vista) y ligera (si se hace la consulta desde la vista)
+Route::get('home',function (){
+   $books = \eloquenAvance\Book::with('category','users')->get();
+   return view('home', compact('books'));
+});
