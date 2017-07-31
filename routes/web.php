@@ -11,6 +11,8 @@
 |
 */
 
+use eloquenAvance\Page;
+
 //introduccion-y-primeros-pasos video 1
 Route::get('/', function () {
     $books = eloquenAvance\Book::get();
@@ -116,4 +118,14 @@ Route::get('manytomanymax',function (){
 Route::get('home',function (){
    $books = \eloquenAvance\Book::with('category','users')->get();
    return view('home', compact('books'));
+});
+
+//relaciones polimorficas
+Route::get('poli', function (){
+   $page = Page::find(6);
+   echo $page->name;
+
+   foreach ($page->comments as $comment){
+        echo '<li>'. $comment->body .'</li>';
+   }
 });

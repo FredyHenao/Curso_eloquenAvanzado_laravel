@@ -37,3 +37,16 @@ $factory->define(eloquenAvance\Exam::class, function (Faker\Generator $faker){
         'title' => $faker->name,
     ];
 });
+
+$factory->define(eloquenAvance\Page::class, function (Faker\Generator $faker){
+    return [
+        'name' => $faker->name,
+        'body' => $faker->text,
+    ];
+});
+$factory->define(eloquenAvance\Post::class, function (Faker\Generator $faker){
+    return [
+        'title' => $faker->name,
+        'body' => $faker->text,
+    ];
+});
